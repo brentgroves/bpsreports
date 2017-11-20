@@ -20,13 +20,28 @@ var config = {
 var cribDefTO = {
  user: 'sa',
  password: 'buschecnc1',
- server: '10.1.2.17',
+ server: 'busche-sql',
+// server: '10.1.2.17',
+//  server: '192.168.254.42',
+ database: 'Cribmaster',
+ port: 1433, 
+ options: {
+  encrypt: false // Use this if you're on Windows Azure
+  }
+}
+/*
+var cribDefTO = {
+ user: 'sa',
+ password: 'buschecnc1',
+ server: 'busche-sql',
+// server: '10.1.2.17',
 //  server: '192.168.254.42',
  options: {
     database: 'Cribmaster',
     port: 1433 
   }
 }
+*/
 function beforeRender(done) {
  //       var dtStart =Moment(new Date()).format("MM-DD-YYYY hh:mm:ss");
  //       var dtEnd =Moment(new Date()).format("MM-DD-YYYY hh:mm:ss");
@@ -49,6 +64,7 @@ function beforeRender(done) {
     }).catch(done);
 
 }
+
 
 function afterRender(req, res, done) {
     //filter out script execution for phantom header
